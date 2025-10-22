@@ -1,7 +1,7 @@
 {
   "name": "arc-validate",
   "version": "1.0.0",
-  "description": "Small library for standardizing and extending basic Errors\n",
+  "description": "A lightweight, dependency-minimal runtime type validator for JavaScript and Node.js.",
   "main": "index.js",
   "types": "index.d.ts",
   "type": "module",
