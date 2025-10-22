@@ -1,0 +1,35 @@
+{
+  "name": "arc-validate",
+  "version": "1.0.0",
+  "description": "Small library for standardizing and extending basic Errors\n",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://anyuzer@github.com/anyuzer/arc-validate.git"
+  },
+  "keywords": [
+    "array"
+  ],
+  "author": "Ian Reid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anyuzer/arc-validate/issues"
+  },
+  "homepage": "https://github.com/anyuzer/arc-validate#readme",
+  "dependencies": {
+    "arc-is": "^2.1.0",
+    "email-validator": "^2.0.4"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
+  }
+}
