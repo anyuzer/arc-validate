@@ -6,6 +6,17 @@ export default (_unknown, _types, _customError=null) => {
         return;
     }
 
+    if(_types.includes('explicit')){
+        _types = _types.filter(_val => _val !== 'explicit');
+        if(!_types.includes(_unknown)) {
+            if(_customError){
+                throw _customError;
+            }
+            throw new TypeError(`Expected explicitly ${_types.join("|")}. Received: ${String(_unknown)}`);
+        }
+        return;
+    }
+
     if(_types.includes('parseInt')){
         if(isNaN(parseInt(_unknown))) {
             if(_customError){
@@ -35,17 +46,6 @@ export default (_unknown, _types, _customError=null) => {
                 throw _customError;
             }
             throw new TypeError(`Expected email. Received: ${String(_unknown)}`);
-        }
-        return;
-    }
-
-    if(_types.includes('explicit')){
-        _types = _types.filter(_val => _val !== 'explicit');
-        if(!_types.includes(_unknown)) {
-            if(_customError){
-                throw _customError;
-            }
-            throw new TypeError(`Expected explicitly ${_types.join("|")}. Received: ${String(_unknown)}`);
         }
         return;
     }
