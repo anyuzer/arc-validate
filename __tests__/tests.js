@@ -72,6 +72,12 @@ describe('validateTypes (integration with real arc-lib & email-validator)', () =
         expect(() => validateTypes('maybe', ['explicit', 'yes', 'no'], custom)).toThrow(custom);
     });
 
+    it('explicit: requires value be one of the provided literals (after removing "explicit")', () => {
+        expect(() => validateTypes('widget', ['explicit', 'widget', 'platform', 'email'])).not.toThrow();
+        expect(() => validateTypes('email', ['explicit', 'widget', 'platform', 'email'])).not.toThrow();
+        expect(() => validateTypes('attentive', ['explicit', 'widget', 'platform', 'email'])).toThrow(TypeError);
+    });
+
     // --- uuid branch ------------------------------------------------------------
     it('uuid: accepts RFC 4122 (v1–v5) strings and rejects invalid formats/non-strings', () => {
         expect(() => validateTypes(VALID_UUID, ['uuid'])).not.toThrow();
